@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<div class="signup">
+  <div class="box">
+    <div class="title">
+      <a href="/" class="logo">
+        <img src="{% static '/images/logo.jpg'%}" alt="LOGO" />
+      </a>
+      <h1>medical</h1>
+    </div>
+    <form id="signup_form" action="#" method="POST">
+      {% csrf_token %}
+      {% comment %} <div class"select">
+        <select name="blod" id="blod">
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+        </select>
+      </div> {% endcomment %}
+      <input type="text" name="last_name" placeholder="last name" word-break= "break-word" />
+      <input type="text" name="last_name" placeholder="last name" word-break= "break-word" />
+      <input
+        type="text"
+        class="device"
+        name="device"
+        placeholder="Device Number"
+        required
+      />
+      <div class="radio-group">
+        <h2>Were you operated on?</h2>
+        <label>
+          <input type="radio" value="yes" name="surgery" id="male" />
+          yes
+          <span for="male"></span>
+        </label>
+        <label>
+          <input type="radio" value="no" name="surgery" id="female" />
+          no
+          <span for="female"></span>
+        </label>
+      </div>
+      <button type="submit" id="signup_btn" class="btn">Confirm</button>
+    </form>
+    <!-- <button id="signup_btn" class="btn">sign up</button> -->
+  </div>
+</div>
+<!-- start footer -->
+<footer>Copyrghit &copy; 2023 <span>beSafe</span></footer>
+<!-- end footer -->
+{% endblock content %}

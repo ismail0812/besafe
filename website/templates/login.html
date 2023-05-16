@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<div class="wrap">
+  <div class="overlay">
+    <div class="form-container">
+      <h1>log in</h1>
+      <form id="login_form" action="#" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Email" name="email" required />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        <div class="act">
+          <a href="">Forgot Password</a>
+          <a href="/signup">Sing up</a>
+        </div>
+        <button type="submit" class="btn" id="login_btn">log in</button>
+      </form>
+
+      <!-- <a href="" class="btn" id="login_btn">log in</a> -->
+    </div>
+  </div>
+  <div class="login-landing"></div>
+</div>
+<!-- start footer -->
+<footer>Copyrghit &copy; 2023 <span>beSafe</span></footer>
+<!-- end footer -->
+{% endblock content %}

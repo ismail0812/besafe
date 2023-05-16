@@ -1,0 +1,141 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<!-- start header -->
+<header>
+  <div class="container">
+    <a href="/" class="logo">
+      <img src="{% static '/images/logo.jpg'%}" alt="LOGO" />
+    </a>
+    <nav>
+      <i class="fas fa-bars toggle-menu"></i>
+      <ul>
+        <li><a class="active" href="">home</a></li>
+        {% comment %}
+        <li><a class="" href="Dashboard">Dashboard</a></li>
+        {% endcomment %}
+        <li><a href="#services">services</a></li>
+        <li><a href="#about">about us</a></li>
+      </ul>
+      {% comment %}
+      <div id="profileLabbel" onclick="toggleMenu()">
+        <span>Full Name</span>
+        <i class="fa-solid fa-angle-down"></i>
+        <div class="sub-menu-wrap" id="subMenu">
+          <div class="sub-menu">
+            <a class="sub-menu-link" href="">
+              <i class="fa-solid fa-user"></i>
+              <p>Profil</p>
+              <span>></span>
+            </a>
+            <hr />
+            <a class="sub-menu-link" href="">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <p>Logout</p>
+              <span>></span>
+            </a>
+            <hr />
+          </div>
+        </div>
+      </div>
+      {% endcomment %}
+    </nav>
+  </div>
+</header>
+<!-- end header -->
+<!-- start land -->
+<div class="landing">
+  <div class="text">
+    <h1>
+      Be safe <br />
+      <span>everywhere</span>
+    </h1>
+    <p>
+      Welcome to Be Safe Everywhere. This website was created to help you avoid
+      both expected risks and the environment, by linking our product to your
+      home or car.
+    </p>
+    <div id="auth_btns">
+      {% comment %} <a href="login">log in</a> {% endcomment %}
+      <a href="login">log in</a>
+      <a href="signup" class="sign">register</a>
+    </div>
+  </div>
+</div>
+<!-- end land -->
+<!-- start services -->
+<div class="services" id="services">
+  <div class="container">
+    <h1>our services</h1>
+    <div class="content">
+      <div class="box">
+        <img src="{% static '/images/ICON1-01.png'%}" alt="" />
+        <div class="text">
+          <h2>drivers service</h2>
+          <p>
+            With GPS, our product gives you the freedom to travel without fear
+            of getting lost or road accidents without being reported
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <img src="{% static '/images/ICON2-01.png'%}" alt="" />
+        <div class="text">
+          <h2>Gas suffocation</h2>
+          <p>
+            Lack of ventilation is a major danger The authorities warned that
+            the availability of conditions in the heating equipment does not
+            prevent it from remaining a sure source of carbon monoxide
+            emissions. This increases the risk of gas suffocation, which
+            requires adherence to the necessary preventive measures to avoid
+            such accidents<br />
+            Our product detects any gas leakage
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <img src="{% static '/images/ICON3-01.png'%}" alt="" />
+        <div class="text">
+          <h2>Earthquakes</h2>
+          <p>
+            Earthquakes are a natural phenomenon and occur as a result of an
+            imbalance in the layers of the earth, and their frequency has
+            increased as a result of the increased movement of the crust in
+            previous years. Our product warns of the disaster before it occurs
+            to reduce the largest number of human losses
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <img src="{% static '/images/ICON4-01.png'%}" alt="" />
+        <div class="text">
+          <h2>House fires</h2>
+          <p>
+            The increasing emissions of greenhouse gases as a result of human
+            activity act as a blanket wrapped around the earth, trapping the
+            sun's heat and raising temperatures, resulting in a rise in the rate
+            of house and forest fires.
+            <br />Our product detects any ignition of fire
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end services -->
+<!-- start contact -->
+<div class="contact" id="about">
+  <div class="container">
+    <div class="social">
+      <span>Socila media</span>
+      <div class="box">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end contact -->
+<!-- start footer -->
+<footer>Copyrghit &copy; <span>beSafe</span> 2023</footer>
+<!-- end footer -->
+{% endblock content %}

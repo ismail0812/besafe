@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<header>
+  <div class="container dash-nav">
+    <a href="/" class="logo">
+      <img src="{% static '/images/logo.jpg'%}" alt="LOGO" />
+    </a>
+    <a style="text-decoration: none;
+    color: var(--main-color);
+    text-transform: capitalize;" href="{% url 'profile' %}"><div><h2>{{user.first_name}} {{user.last_name}}</h2></div></a>
+    <div><a href="{% url 'logout' %}"><button id="logout_btn" class="btn">logout</button></a></div>
+  </div>
+</header>
+<br>
+<!-- end header -->
+<!-- start dashboard -->
+<hr style="margin: 0 25px">
+<div class="container">
+  {% comment %} {% for in %}{% endfor %} {% endcomment %}
+  <h1>Profile</h1>
+      
+</div>
+<div class="container"><div class="dash_cards">
+  <div class="card">
+    <div class="title">
+      <h2>House captures</h2>
+      <i class="fa-sharp fa-solid fa-house"></i>
+    </div>
+    <div>
+      <div class="inner">Gas : <span id ="houseGas">Normal</span></div>
+      <div class="inner">Fire : <span>Normal</span></div>
+      <div class="inner">Earthquakes : <span>Normal</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">
+      <h2>Car captures</h2>
+      <i class="fa-sharp fa-solid fa-car"></i>
+    </div>
+    <div>
+      <div class="inner">Gas : <span id ="carGas">Normal</span></div>
+      <div class="inner">Fire : <span>Normal</span></div>
+      <div class="inner">GPS : <span>Normal</span></div>
+    </div>
+  </div>
+</div></div>
+</div>
+<!-- start footer -->
+<footer>Copyrghit &copy; 2023 <span>beSafe</span></footer>
+<!-- end footer -->
+{% endblock content %}

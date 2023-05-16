@@ -1,0 +1,143 @@
+{% extends 'base.html' %} {% load static%} {% block content %}
+<!-- start header -->
+<header>
+  <div class="container dash-nav">
+    <a href="" class="logo">
+      <img src="{% static '/images/logo.jpg'%}" alt="LOGO" />
+    </a>
+    <a
+      style="
+        text-decoration: none;
+        color: var(--main-color);
+        text-transform: capitalize;
+      "
+      href="{% url 'profile' %}"
+      ><div><h2>{{user.first_name}} {{user.last_name}}</h2></div></a
+    >
+    <div>
+      <a href="{% url 'logout' %}"
+        ><button id="logout_btn" class="btn">logout</button></a
+      >
+    </div>
+  </div>
+</header>
+<br />
+<!-- end header -->
+<!-- start dashboard -->
+<hr style="margin: 0 25px" />
+<div class="dashboard">
+  <div class="container">
+    <div class="dash_heading">
+      <h1>Dashboard</h1>
+    </div>
+    <div class="dash_cards">
+      <div class="card" id="house">
+        <div class="title">
+          <h2>House captures</h2>
+          <i class="fa-sharp fa-solid fa-house"></i>
+        </div>
+        <div>
+          <div class="inner">Gas : <span id="houseGas">Normal</span></div>
+          <div class="inner">Fire : <span id="housefire">Normal</span></div>
+          <div class="inner">
+            Earthquakes : <span id="earthquake">Normal</span>
+          </div>
+        </div>
+      </div>
+      <div class="card" id="car">
+        <div class="title">
+          <h2>Car captures</h2>
+          <i class="fa-sharp fa-solid fa-car"></i>
+        </div>
+        <div>
+          <div class="inner">Gas : <span id="carGas">Normal</span></div>
+          <div class="inner">Fire : <span id="carFire">Normal</span></div>
+          <div class="inner">GPS : <span id="gps"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end services -->
+
+<!-- start footer -->
+<footer>Copyrghit &copy; <span>beSafe</span> 2023</footer>
+<!-- end footer -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+  function data() {
+    $.get("/data/", function (response) {
+      let gas = response.gas;
+      let fire = response.fire;
+      let earthquake = response.earthquake;
+      let cargas = response.cargas;
+      let carfire = response.carfire;
+      let gps = response.gps;
+      console.log(response);
+      //house data
+      if (gas != null) {
+        if (gas == 1) {
+          $("#houseGas").text("Normal");
+        } else {
+          $("#houseGas").text("dangerous");
+        }
+      } else {
+        $("#houseGas").text("No reading");
+      }
+      if (fire != null) {
+        if (fire == 1) {
+          $("#housefire").text("Normal");
+        } else {
+          $("#housefire").text("dangerous");
+        }
+      } else {
+        $("#housefire").text("No reading");
+      }
+      if (earthquake != null) {
+        if (earthquake == 1) {
+          $("#earthquake").text("Normal");
+        } else {
+          $("#earthquake").text("dangerous");
+        }
+      } else {
+        $("#earthquake").text("No reading");
+      }
+      if (earthquake == 0 || fire == 0 || gas == 0) {
+        $("#house").css("background-color", "#D0342C");
+      } else {
+        $("#house").css("background-color", "#009245");
+      }
+
+      //car data
+      if (gps != null) {
+        $("#gps").text(gps);
+      } else $("#gps").text("no reading");
+      if (cargas != null) {
+        if (cargas == 1) {
+          $("#carGas").text("normal");
+        } else {
+          $("#carGas").text("dangerous");
+        }
+      } else $("#carGas").text("no reading");
+      if (carfire != null) {
+        if (carfire == 1) {
+          $("#carFire").text("normal");
+        } else {
+          $("#carFire").text("dangerous");
+        }
+      } else $("#carFire").text("no reading");
+
+      if (carfire == 0 || cargas == 0) {
+        $("#car").css("background-color", "#D0342C");
+      } else {
+        $("#car").css("background-color", "#009245");
+      }
+    });
+  }
+
+  // Call updateData every 10 seconds
+  //setInterval(updateHouseData, 10000);
+  //setInterval(updateCarData, 10000);
+  setInterval(data, 5000);
+</script>
+{% endblock content %}
